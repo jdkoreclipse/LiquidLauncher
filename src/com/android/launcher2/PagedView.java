@@ -1,4 +1,4 @@
-/*
+f/*
  * Copyright (C) 2010 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -83,7 +83,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
     protected int mMinSnapVelocity;
 
     protected float mDensity;
-    protected float mSmoothingTime;
+  //  protected float mSmoothingTime;
     protected float mTouchX;
 
     protected boolean mFirstLayout = true;
@@ -396,7 +396,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
         }
 
         mTouchX = x;
-        mSmoothingTime = System.nanoTime() / NANOTIME_DIV;
+     //   mSmoothingTime = System.nanoTime() / NANOTIME_DIV;
     }
 
     // we moved this functionality to a helper function so SmoothPagedView can reuse it
@@ -1062,7 +1062,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
                 mLastMotionX = x;
                 mLastMotionXRemainder = 0;
                 mTouchX = getScrollX();
-                mSmoothingTime = System.nanoTime() / NANOTIME_DIV;
+        //        mSmoothingTime = System.nanoTime() / NANOTIME_DIV;
                 pageBeginMoving();
             }
             // Either way, cancel any pending longpress
@@ -1207,7 +1207,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
                 // scrolled position (which is discrete).
                 if (Math.abs(deltaX) >= 1.0f) {
                     mTouchX += deltaX;
-                    mSmoothingTime = System.nanoTime() / NANOTIME_DIV;
+            //        mSmoothingTime = System.nanoTime() / NANOTIME_DIV;
                     if (!mDeferScrollUpdate) {
                         scrollBy((int) deltaX, 0);
                         if (DEBUG) Log.d(TAG, "onTouchEvent().Scrolling: " + deltaX);
