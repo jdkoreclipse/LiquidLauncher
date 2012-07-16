@@ -163,7 +163,6 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
     protected boolean mUsePagingTouchSlop = true;
 
     // If true, the subclass should directly update scrollX itself in its computeScroll method
-    // (SmoothPagedView does this)
     protected boolean mDeferScrollUpdate = false;
 
     protected boolean mIsPageMoving = false;
@@ -399,8 +398,8 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
      //   mSmoothingTime = System.nanoTime() / NANOTIME_DIV;
     }
 
-    // we moved this functionality to a helper function so SmoothPagedView can reuse it
-    protected boolean computeScrollHelper() {
+@Override
+    protected void computeScroll() {
         if (mScroller.computeScrollOffset()) {
             // Don't bother scrolling if the page does not need to be moved
             if (getScrollX() != mScroller.getCurrX()
@@ -409,7 +408,6 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
                 scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
             }
             invalidate();
-            return true;
         } else if (mNextPage != INVALID_PAGE) {
             mCurrentPage = Math.max(0, Math.min(mNextPage, getPageCount() - 1));
             mNextPage = INVALID_PAGE;
@@ -436,14 +434,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
                 ev.getText().add(getCurrentPageDescription());
                 sendAccessibilityEventUnchecked(ev);
             }
-            return true;
         }
-        return false;
-    }
-
-    @Override
-    public void computeScroll() {
-        computeScrollHelper();
     }
 
     @Override
