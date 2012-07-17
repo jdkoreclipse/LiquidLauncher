@@ -57,10 +57,10 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
     protected static final int INVALID_PAGE = -1;
 
     // the min drag distance for a fling to register, to prevent random page shifts
-    private static final int MIN_LENGTH_FOR_FLING = 20;
+    private static final int MIN_LENGTH_FOR_FLING = 25;
 
-    protected static final int PAGE_SNAP_ANIMATION_DURATION = 125;
-    protected static final int SLOW_PAGE_SNAP_ANIMATION_DURATION = 250;
+    protected static final int PAGE_SNAP_ANIMATION_DURATION = 550;
+    protected static final int SLOW_PAGE_SNAP_ANIMATION_DURATION = 950;
     protected static final float NANOTIME_DIV = 1000000000.0f;
 
     private static final float OVERSCROLL_ACCELERATE_FACTOR = 2;
@@ -72,9 +72,9 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
 
     // The following constants need to be scaled based on density. The scaled versions will be
     // assigned to the corresponding member variables below.
-    private static final int FLING_THRESHOLD_VELOCITY = 200;
+    private static final int FLING_THRESHOLD_VELOCITY = 500;
     private static final int MIN_SNAP_VELOCITY = 1500;
-    private static final int MIN_FLING_VELOCITY = 150;
+    private static final int MIN_FLING_VELOCITY = 250;
 
     static final int AUTOMATIC_PAGE_SPACING = -1;
 
@@ -83,7 +83,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
     protected int mMinSnapVelocity;
 
     protected float mDensity;
-  //  protected float mSmoothingTime;
+    protected float mSmoothingTime;
     protected float mTouchX;
 
     protected boolean mFirstLayout = true;
@@ -163,6 +163,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
     protected boolean mUsePagingTouchSlop = true;
 
     // If true, the subclass should directly update scrollX itself in its computeScroll method
+    // (SmoothPagedView does this)
     protected boolean mDeferScrollUpdate = false;
 
     protected boolean mIsPageMoving = false;
@@ -395,11 +396,11 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
         }
 
         mTouchX = x;
-     //   mSmoothingTime = System.nanoTime() / NANOTIME_DIV;
+        mSmoothingTime = System.nanoTime() / NANOTIME_DIV;
     }
 
-@Override
-    protected void computeScroll() {
+    // we moved this functionality to a helper function so SmoothPagedView can reuse it
+    protected boolean computeScrollHelper() {
         if (mScroller.computeScrollOffset()) {
             // Don't bother scrolling if the page does not need to be moved
             if (getScrollX() != mScroller.getCurrX()
@@ -408,6 +409,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
                 scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
             }
             invalidate();
+            return true;
         } else if (mNextPage != INVALID_PAGE) {
             mCurrentPage = Math.max(0, Math.min(mNextPage, getPageCount() - 1));
             mNextPage = INVALID_PAGE;
@@ -434,7 +436,14 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
                 ev.getText().add(getCurrentPageDescription());
                 sendAccessibilityEventUnchecked(ev);
             }
+            return true;
         }
+        return false;
+    }
+
+    @Override
+    public void computeScroll() {
+        computeScrollHelper();
     }
 
     @Override
@@ -1053,7 +1062,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
                 mLastMotionX = x;
                 mLastMotionXRemainder = 0;
                 mTouchX = getScrollX();
-        //        mSmoothingTime = System.nanoTime() / NANOTIME_DIV;
+                mSmoothingTime = System.nanoTime() / NANOTIME_DIV;
                 pageBeginMoving();
             }
             // Either way, cancel any pending longpress
@@ -1198,7 +1207,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
                 // scrolled position (which is discrete).
                 if (Math.abs(deltaX) >= 1.0f) {
                     mTouchX += deltaX;
-            //        mSmoothingTime = System.nanoTime() / NANOTIME_DIV;
+                    mSmoothingTime = System.nanoTime() / NANOTIME_DIV;
                     if (!mDeferScrollUpdate) {
                         scrollBy((int) deltaX, 0);
                         if (DEBUG) Log.d(TAG, "onTouchEvent().Scrolling: " + deltaX);
