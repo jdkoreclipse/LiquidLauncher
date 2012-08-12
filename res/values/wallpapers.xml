@@ -17,6 +17,12 @@
 
 <resources>
     <string-array name="wallpapers" translatable="false">
-        <item>wallpaper_liquid</item>
+        <item>liquidwall_01</item>
+        <item>liquidwall_02</item>
+        <item>liquidwall_03</item>
+        <item>liquidwall_04</item>
+        <item>liquidwall_05</item>
+        <item>liquidwall_06</item>
+        <item>liquidwall_07</item>
     </string-array>
 </resources>

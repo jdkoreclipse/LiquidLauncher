@@ -9,14 +9,17 @@ import android.appwidget.AppWidgetHostView;
 import android.appwidget.AppWidgetProviderInfo;
 import android.content.Context;
 import android.graphics.Rect;
+import android.os.Build;
 import android.view.Gravity;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import com.android.launcher2.preference.PreferencesProvider;
 
 import com.android.launcher.R;
 import com.android.launcher2.preference.PreferencesProvider;
 
 public class AppWidgetResizeFrame extends FrameLayout {
+
     private LauncherAppWidgetHostView mWidgetView;
     private CellLayout mCellLayout;
     private DragLayer mDragLayer;

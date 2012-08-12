@@ -27,6 +27,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+
 import com.android.launcher.R;
 
 /*
@@ -182,5 +183,4 @@ public class DoubleNumberPickerPreference extends DialogPreference {
     public void setDefault2(int def) {
         mDefault2 = def;
     }
-
 }

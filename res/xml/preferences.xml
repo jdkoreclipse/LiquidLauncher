@@ -50,16 +50,16 @@
         </PreferenceScreen>
 
         <!-- Dock -->
-        <PreferenceScreen android:key="ui_dock"
+        <!-- <PreferenceScreen android:key="ui_dock"
             android:title="@string/preferences_interface_dock_title">
 
-        </PreferenceScreen>
+        </PreferenceScreen> -->
 
         <!-- Icons -->
-        <PreferenceScreen android:key="ui_icons"
+        <!-- <PreferenceScreen android:key="ui_icons"
             android:title="@string/preferences_interface_icons_title">
 
-        </PreferenceScreen>
+        </PreferenceScreen> -->
 
         <!-- General -->
         <PreferenceScreen android:key="ui_general"
@@ -67,10 +67,12 @@
             <CheckBoxPreference android:key="ui_general_orientation"
                 android:title="@string/preferences_interface_general_orientation_title" />
         </PreferenceScreen>
-
     </PreferenceCategory>
 
     <!-- Application -->
     <PreferenceCategory android:title="@string/preferences_application_title">
+        <Preference android:key="application_version"
+            style="?android:preferenceInformationStyle"
+            android:summary="@string/application_copyright" />
     </PreferenceCategory>
 </PreferenceScreen>

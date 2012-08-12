@@ -20,7 +20,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public final class PreferencesProvider {
-    public static final String PREFERENCES_KEY = "com.android.launcher2_preferences";
+    public static final String PREFERENCES_KEY = "com.android.launcher_preferences";
 
     public static final String PREFERENCES_CHANGED = "preferences_changed";
     public static class Interface {

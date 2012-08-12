@@ -18,8 +18,8 @@ package com.android.launcher2.preference;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.preference.Preference;
 import android.preference.DialogPreference;
+import android.preference.Preference;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -122,5 +122,4 @@ public class NumberPickerPreference extends DialogPreference {
             persistInt(mNumberPicker.getValue());
         }
     }
-
 }
