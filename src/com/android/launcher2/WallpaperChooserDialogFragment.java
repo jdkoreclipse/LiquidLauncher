@@ -195,7 +195,7 @@ public class WallpaperChooserDialogFragment extends DialogFragment implements
         final Resources resources = getResources();
         // Context.getPackageName() may return the "original" package name,
         // com.android.launcher2; Resources needs the real package name,
-        // com.android.launcher2. So we ask Resources for what it thinks the
+        // com.android.launcher. So we ask Resources for what it thinks the
         // package name should be.
         final String packageName = resources.getResourcePackageName(R.array.wallpapers);
 

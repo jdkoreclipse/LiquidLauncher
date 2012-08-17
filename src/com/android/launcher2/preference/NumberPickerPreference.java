@@ -100,4 +100,5 @@ public class NumberPickerPreference extends DialogPreference {
             persistInt(mNumberPicker.getValue());
         }
     }
+
 }
