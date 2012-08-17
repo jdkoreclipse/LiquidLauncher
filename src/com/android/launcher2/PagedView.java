@@ -1741,7 +1741,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
         postDelayed(hideScrollingIndicatorRunnable, sScrollIndicatorFlashDuration);
     }
 
-    protected void showScrollingIndicator(boolean immediately) {
+    protected void showScrollingIndicator(boolean immediately, int duration) {
         mShouldShowScrollIndicator = true;
         mShouldShowScrollIndicatorImmediately = true;
         if (getChildCount() <= 1) return;

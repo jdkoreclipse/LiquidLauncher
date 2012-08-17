@@ -45,6 +45,8 @@ import com.android.launcher2.preference.PreferencesProvider;
 
 import java.util.ArrayList;
 
+import com.android.launcher.R;
+
 /**
  * An icon that can appear on in the workspace representing an {@link UserFolder}.
  */
