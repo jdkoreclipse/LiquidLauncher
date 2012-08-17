@@ -19,6 +19,10 @@ package com.android.launcher2.preference;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.android.launcher2.LauncherApplication;
+import com.android.launcher2.Workspace;
+import com.android.launcher2.AppsCustomizePagedView;
+
 public final class PreferencesProvider {
     public static final String PREFERENCES_KEY = "com.android.launcher_preferences";
 
@@ -51,6 +55,16 @@ public final class PreferencesProvider {
                     return def;
                 }
             }
+            public static int getScreenPaddingVertical(Context context) {
+                final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
+                return (int)((float) preferences.getInt("ui_homescreen_screen_padding_vertical", 0) * 3.0f *
+                        LauncherApplication.getScreenDensity());
+            }
+            public static int getScreenPaddingHorizontal(Context context) {
+                final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
+                return (int)((float) preferences.getInt("ui_homescreen_screen_padding_horizontal", 0) * 3.0f *
+                        LauncherApplication.getScreenDensity());
+            }
             public static boolean getShowSearchBar(Context context) {
                 final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
                 return preferences.getBoolean("ui_homescreen_general_search", true);
@@ -59,10 +73,47 @@ public final class PreferencesProvider {
                 final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
                 return preferences.getBoolean("ui_homescreen_general_resize_any_widget", false);
             }
+            public static boolean getHideIconLabels(Context context) {
+                final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
+                return preferences.getBoolean("ui_homescreen_general_hide_icon_labels", false);
+            }
+            public static class Scrolling {
+                public static boolean getScrollWallpaper(Context context) {
+                    final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
+                    return preferences.getBoolean("ui_homescreen_scrolling_scroll_wallpaper", true);
+                }
+            }
+            public static class Indicator {
+                public static boolean getShowScrollingIndicator(Context context) {
+                    final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
+                    return preferences.getBoolean("ui_homescreen_indicator_enable", true);
+                }
+                public static boolean getFadeScrollingIndicator(Context context) {
+                    final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
+                    return preferences.getBoolean("ui_homescreen_indicator_fade", true);
+                }
+                public static boolean getShowDockDivider(Context context) {
+                    final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
+                    return preferences.getBoolean("ui_homescreen_indicator_background", true);
+                }
+            }
         }
 
         public static class Drawer {
-
+            public static boolean getJoinWidgetsApps(Context context) {
+                final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
+                return preferences.getBoolean("ui_drawer_widgets_join_apps", true);
+            }
+            public static class Indicator {
+                public static boolean getShowScrollingIndicator(Context context) {
+                   final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
+                    return preferences.getBoolean("ui_drawer_indicator_enable", true);
+                }
+                public static boolean getFadeScrollingIndicator(Context context) {
+                    final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
+                    return preferences.getBoolean("ui_drawer_indicator_fade", true);
+                }
+            }
         }
 
         public static class Dock {

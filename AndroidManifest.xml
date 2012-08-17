@@ -68,7 +68,6 @@
         android:icon="@drawable/ic_launcher_home"
         android:hardwareAccelerated="@bool/config_hardwareAccelerated"
         android:largeHeap="@bool/config_largeHeap">
-
         <activity
             android:name="com.android.launcher2.Launcher"
             android:launchMode="singleTask"
@@ -125,7 +124,6 @@
                 <category android:name="com.liquid.category.LAUNCHER_PREFERENCES" />
             </intent-filter>
         </activity>
-
         <!-- Intent received used to install shortcuts from other applications -->
         <receiver
             android:name="com.android.launcher2.InstallShortcutReceiver"
