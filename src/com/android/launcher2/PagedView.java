@@ -181,7 +181,6 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
     private boolean mShouldShowScrollIndicatorImmediately = false;
     protected static final int sScrollIndicatorFadeInDuration = 150;
     protected static final int sScrollIndicatorFadeOutDuration = 650;
-    protected static final int sScrollIndicatorFadeOutShortDuration = 150;
     protected static final int sScrollIndicatorFlashDuration = 650;
 
     // If set, will defer loading associated pages until the scrolling settles
@@ -1741,7 +1740,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
         postDelayed(hideScrollingIndicatorRunnable, sScrollIndicatorFlashDuration);
     }
 
-    protected void showScrollingIndicator(boolean immediately, int duration) {
+    protected void showScrollingIndicator(boolean immediately) {
         mShouldShowScrollIndicator = true;
         mShouldShowScrollIndicatorImmediately = true;
         if (getChildCount() <= 1) return;
@@ -1758,7 +1757,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
                 mScrollIndicator.setAlpha(1f);
             } else {
                 mScrollIndicatorAnimator = ObjectAnimator.ofFloat(mScrollIndicator, "alpha", 1f);
-                mScrollIndicatorAnimator.setDuration(duration);
+                mScrollIndicatorAnimator.setDuration(sScrollIndicatorFadeInDuration);
                 mScrollIndicatorAnimator.start();
             }
         }
@@ -1771,10 +1770,6 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
     }
 
     protected void hideScrollingIndicator(boolean immediately) {
-        hideScrollingIndicator(immediately, sScrollIndicatorFadeOutDuration);
-    }
-
-    protected void hideScrollingIndicator(boolean immediately, int duration) {
         if (getChildCount() <= 1) return;
         if (!isScrollingIndicatorEnabled()) return;
 
@@ -1788,7 +1783,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
                 mScrollIndicator.setAlpha(0f);
             } else {
                 mScrollIndicatorAnimator = ObjectAnimator.ofFloat(mScrollIndicator, "alpha", 0f);
-                mScrollIndicatorAnimator.setDuration(duration);
+                mScrollIndicatorAnimator.setDuration(sScrollIndicatorFadeOutDuration);
                 mScrollIndicatorAnimator.addListener(new AnimatorListenerAdapter() {
                     private boolean cancelled = false;
                     @Override
@@ -1805,22 +1800,6 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
                 mScrollIndicatorAnimator.start();
             }
         }
-    }
-
-    protected void enableScrollingIndicator() {
-        mHasScrollIndicator = true;
-        getScrollingIndicator();
-        if (mScrollIndicator != null) {
-            mScrollIndicator.setVisibility(View.VISIBLE);
-        }
-    }
-
-    protected void disableScrollingIndicator() {
-        if (mScrollIndicator != null) {
-            mScrollIndicator.setVisibility(View.GONE);
-        }
-        mHasScrollIndicator = false;
-        mScrollIndicator = null;
     }
 
     /**
