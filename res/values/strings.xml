@@ -25,7 +25,7 @@
     <!-- Application copyright -->
     <string name="application_copyright">Copyright \u00A9 LiquidSmooth 2012</string>
     <!-- Application version -->
-    <string name="application_version">2.0</string>
+    <string name="application_version">0.2</string>
     <!-- Accessibility-facing application name -->
     <string name="home">Home</string>
     <!-- Name for all applications running as this uid. -->
@@ -309,39 +309,39 @@ s -->
     <string name="preferences_interface_homescreen_general_default_screen_summary">Choose the default homescreen</string>
     <string name="preferences_interface_homescreen_general_search_title">Search Bar</string>
     <string name="preferences_interface_homescreen_general_grid_title">Grid Size</string>
-    <string name="preferences_interface_homescreen_general_grid_summary">Choose the number of rows/columns on the homescreen</string>
+    <string name="preferences_interface_homescreen_general_grid_summary">Choose the number of rows/columns</string>
     <string name="preferences_interface_homescreen_general_grid_rows_title">Rows</string>
     <string name="preferences_interface_homescreen_general_grid_columns_title">Columns</string>
     <string name="preferences_interface_homescreen_general_screen_padding_vertical_title">Vertical Padding</string>
-    <string name="preferences_interface_homescreen_general_screen_padding_vertical_summary">Extra vertical spacing on the homescreen</string>
+    <string name="preferences_interface_homescreen_general_screen_padding_vertical_summary">Extra vertical spacing</string>
     <string name="preferences_interface_homescreen_general_screen_padding_horizontal_title">Horizontal Padding</string>
-    <string name="preferences_interface_homescreen_general_screen_padding_horizontal_summary">Extra horizontal spacing on the homescreen</string>
+    <string name="preferences_interface_homescreen_general_screen_padding_horizontal_summary">Extra horizontal spacing</string>
     <string name="preferences_interface_homescreen_general_search_summary">Enable persistent search bar</string>
     <string name="preferences_interface_homescreen_general_resize_any_widget_title">Resize Widgets</string>
-    <string name="preferences_interface_homescreen_general_resize_any_widget_summary">Allow resizing of widgets that normally aren\'t resizeable</string>
+    <string name="preferences_interface_homescreen_general_resize_any_widget_summary">Allow resizing of widgets</string>
     <string name="preferences_interface_homescreen_general_hide_icon_labels_title">Hide Labels</string>
     <string name="preferences_interface_homescreen_general_hide_icon_labels_summary">Hide homescreen icon labels</string>
     <string name="preferences_interface_homescreen_scrolling_category">Scrolling</string>
     <string name="preferences_interface_homescreen_scrolling_scroll_wallpaper_title">Scroll Wallpaper</string>
-    <string name="preferences_interface_homescreen_scrolling_scroll_wallpaper_summary">Scroll wallpaper when scrolling homescreens</string>
+    <string name="preferences_interface_homescreen_scrolling_scroll_wallpaper_summary">Scroll wallpaper when scrolling</string>
     <string name="preferences_interface_homescreen_indicator_category">Indicator</string>
     <string name="preferences_interface_homescreen_indicator_enable_title">Page Indicator</string>
-    <string name="preferences_interface_homescreen_indicator_enable_summary">Show current page indicator at the bottom of the screen</string>
+    <string name="preferences_interface_homescreen_indicator_enable_summary">Show current page indicator at the bottom</string>
     <string name="preferences_interface_homescreen_indicator_fade_title">Fade Indicator</string>
-    <string name="preferences_interface_homescreen_indicator_fade_summary">Fade the indicator after the homescreen has changed</string>
+    <string name="preferences_interface_homescreen_indicator_fade_summary">Fade the indicator after screen has changed</string>
     <string name="preferences_interface_homescreen_indicator_background_title">Dock Divider</string>
-    <string name="preferences_interface_homescreen_indicator_background_summary">Show the background behind the indicator</string>
+    <string name="preferences_interface_homescreen_indicator_background_summary">Show the background behind indicator</string>
 
     <!-- Drawer -->
     <string name="preferences_interface_drawer_title">Drawer</string>
     <string name="preferences_interface_drawer_widgets_category">Widgets</string>
     <string name="preferences_interface_drawer_widgets_join_apps_title">Join With Apps</string>
-    <string name="preferences_interface_drawer_widgets_join_apps_summary">Swipe from apps drawer to widgets drawer without changing tabs</string>
+    <string name="preferences_interface_drawer_widgets_join_apps_summary">Swipe from apps drawer to widgets</string>
     <string name="preferences_interface_drawer_indicator_category">Indicator</string>
     <string name="preferences_interface_drawer_indicator_enable_title">Page Indicator</string>
-    <string name="preferences_interface_drawer_indicator_enable_summary">Show current page indicator at the bottom of the screen</string>
+    <string name="preferences_interface_drawer_indicator_enable_summary">Show current page indicator at the bottom</string>
     <string name="preferences_interface_drawer_indicator_fade_title">Fade Indicator</string>
-    <string name="preferences_interface_drawer_indicator_fade_summary">Fade the indicator after the page has changed</string>
+    <string name="preferences_interface_drawer_indicator_fade_summary">Fade the indicator after page has changed</string>
 
     <!-- Dock -->
     <string name="preferences_interface_dock_title">Dock</string>
