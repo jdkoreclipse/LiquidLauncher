@@ -49,8 +49,8 @@ public class DragController {
     /** Indicates the drag is a copy.  */
     public static int DRAG_ACTION_COPY = 1;
 
-    private static final int SCROLL_DELAY = 500;
-    private static final int RESCROLL_DELAY = 750;
+    private static final int SCROLL_DELAY = 375;
+    private static final int RESCROLL_DELAY = 550;
     private static final int VIBRATE_DURATION = 15;
 
     private static final boolean PROFILE_DRAWING_DURING_DRAG = false;
